@@ -46,6 +46,68 @@
 4. **Response WorkFlow**:
 ![image](https://github.com/grapitycreation/NDR-Suricata-Zeek-ELK-MachineLearning/blob/main/Images/image9.png)
 
+5. **Functional Architecture**
+![image](https://github.com/grapitycreation/NDR-Suricata-Zeek-ELK-MachineLearning/blob/main/Images/image45.jpg)
+
+## 5. Test Scenarios
+1. **Scenario 1: Detection of DoS/DDoS SYN Flood Attacks**
+ - Detection Source: AI-based IDS
+ - Objective: Validate the system's ability to identify and generate alerts for SYN flood patterns typically associated with denial-of-service (DoS/DDoS) attacks.
+ - Attack Simulation: A simulated DoS attack is initiated from the attacker machine targeting the client machine using the hping3 tool to generate a SYN flood.
+![image](https://github.com/grapitycreation/NDR-Suricata-Zeek-ELK-MachineLearning/blob/main/Images/image13.png)
+   
+ - Log Collection: After the attack is launched, log data is collected and forwarded to the Elastic Stack. The log entry source is identified as the IDS module, and the log file containing the relevant alert is named ddos_attack.json.
+![image](https://github.com/grapitycreation/NDR-Suricata-Zeek-ELK-MachineLearning/blob/main/Images/image14.png)
+
+ - Response Automation: Upon ingestion of the log, automated scripts are triggered:
+ - The offending source IP is automatically blocked via a rule applied through the core switch.
+![image](https://github.com/grapitycreation/NDR-Suricata-Zeek-ELK-MachineLearning/blob/main/Images/image15.png)
+ - An email alert is sent to administrators notifying them of the detected threat and mitigation actions.
+![imaeg](https://github.com/grapitycreation/NDR-Suricata-Zeek-ELK-MachineLearning/blob/main/Images/image16.png)
+
+
+2. **Scenario 2: Detection of Brute Force Attacks**
+ - Detection Source: Suricata
+ - Objective: Ensure successful identification of brute-force login attempts, particularly on common services such as SSH, FTP, or HTTP, based on signature-based alerts.
+ - Attack Simulation: The attacker machine executes a password brute force attack targeting the login page of DVWA (Damn Vulnerable Web Application) using a tool such as hydra or a custom python script.
+![image](https://github.com/grapitycreation/NDR-Suricata-Zeek-ELK-MachineLearning/blob/main/Images/image25.png)
+
+ - Log Generation & Ingestion: The attack traffic is detected by Suricata, which generates IDS alerts. These logs are collected and shipped via Filebeat to Elasticsearch, where they are indexed. The log entries are visualized in Kibana.
+![image](https://github.com/grapitycreation/NDR-Suricata-Zeek-ELK-MachineLearning/blob/main/Images/image26.png)
+  
+ - Automated Response:
+ - Block the attacking IP address by applying a rule via the core switch interface
+![image](https://github.com/grapitycreation/NDR-Suricata-Zeek-ELK-MachineLearning/blob/main/Images/image28.png)
+   
+ - Send an email alert to the administrator detailing the event and mitigation step
+![image](https://github.com/grapitycreation/NDR-Suricata-Zeek-ELK-MachineLearning/blob/main/Images/image27.png)
+   
+3. **Scenario 3: Detection of Potential Data Exfiltration Activities**
+ - Detection Source: Zeek
+ - Objective: Detect abnormal outbound connections or unusual data transfer behaviors that may indicate data exfiltration from within the internal network.
+ - Server Setup (Attacker Side): A simple HTTP server is built using Flask on the attacker machine, listening on port 5000, to simulate an external data receiver.
+![image](https://github.com/grapitycreation/NDR-Suricata-Zeek-ELK-MachineLearning/blob/main/Images/image30.png)
+  
+ - File Transfer (Client Side): On the internal client machine, a file approximately 55 MB in size is created and then uploaded to the attacker’s Flask server via HTTP POST or similar method.
+![image](https://github.com/grapitycreation/NDR-Suricata-Zeek-ELK-MachineLearning/blob/main/Images/image31.png)
+  
+ - Log Collection and Visualization: Network activity is monitored using Zeek, which identifies the unusual file transfer. Logs are captured and forwarded to Elasticsearch via Filebeat, and the event is visualized in Kibana.
+![image](https://github.com/grapitycreation/NDR-Suricata-Zeek-ELK-MachineLearning/blob/main/Images/image32.png)
+  
+ - Automated Script Actions:
+ - Blocks the destination IP to halt ongoing data transfer:
+![image](https://github.com/grapitycreation/NDR-Suricata-Zeek-ELK-MachineLearning/blob/main/Images/image33.png)
+   
+ - Sends an email alert to system administrators detailing the incident, including timestamps, source IP, file size, and destination server info:
+![image](https://github.com/grapitycreation/NDR-Suricata-Zeek-ELK-MachineLearning/blob/main/Images/image34.png)
+
+
+
+
+
+
+
+
 
 
 
