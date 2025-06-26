@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/a714baa9-5e61-4289-80c9-31e66f69be15)![image](https://github.com/user-attachments/assets/a714baa9-5e61-4289-80c9-31e66f69be15)# NDR-Suricata-Zeek-ELK-MachineLearning
+# NDR-Suricata-Zeek-ELK-MachineLearning
 
 ## 1. Introduction
 **Objectives**
